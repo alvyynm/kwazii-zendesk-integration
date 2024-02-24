@@ -292,7 +292,25 @@ Here's the final result:
 
 ## Integrating Kwazii Search into Zendesk
 
-You can take advantage of Kwazii's context-aware search functionality to make your Zendesk Guide articles easily searchable. This can be achieved through integrating Kwazii Search into Zendesk. Follow these steps to get started:
+You can take advantage of Kwazii's context-aware search functionality to make your Zendesk Guide articles easily searchable. This can be achieved through integrating Kwazii Search into Zendesk, replacing Zendesk's built-in search feature. Follow these steps to get started:
+
+1. Log in to your Zendesk account and navigate to the help center.
+   ![01-kwazii-zendesk-integration](/images/01-kwazii-zendesk-integration.png)
+2. Click the **Customize design** button (eye icon) in Zendesk's sidebar. This will take you to the theme selection page.
+   ![02-kwazii-zendesk-integration](/images/02-kwazii-zendesk-integration.png)
+3. Select **Customize** on the currently set theme then in the next page, choose **Edit code** in the bottom right.
+   ![03-kwazii-zendesk-integration](/images/03-kwazii-zendesk-integration.png)
+4. Select `document_head.hbs` then add the script provided by Kwazii in the application page. Here's an example script tag:
+
+```javascript
+<script src="https://cdn.kwazii.app/assets/reamaze.js">
+</script>
+<script type="text/javascript">
+var kwazii = kwazii || { 'datasource': '' };
+kwazii['apiKey'] = 'application61c662b5-fbdd-476a-910a-8fb7bfae35b0';
+_kwazii['applicationId'] = 'cc291a8a-7781-48a3-a068-6e88c84656bc';
+</script>
+```
 
 https://www.algolia.com/doc/integration/zendesk/get-started/
 
