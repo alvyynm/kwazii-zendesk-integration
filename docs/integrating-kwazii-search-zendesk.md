@@ -2,18 +2,18 @@
 
 For every product, whether physical or software-based, customer support plays a crucial role in acquiring new customers and retaining existing ones. But even with a budget to pay dedicated customer support representatives to stay on call 24/7, it takes time to streamline such operations.
 
-Kwazii, a one-stop customer service data platform, addresses this problem by utilizing the power of AI, enabling you to streamline your customer support operations and gain valuable, actionable insights from your customer support data. 
+Kwazii, a one-stop customer service data platform, addresses this problem by utilizing the power of AI, enabling you to streamline your customer support operations and gain valuable, actionable insights from your customer support data.
 
 Through Kwazii's Generative Search API, your customers will quickly discover information thanks to its context-aware search feature that offers tailored responses. On the other hand, Kwazii Agent CoPilot API helps ease the burden on your support team by automating responses in real time. Kwazii also offers an Interactive Analytics API that provides actionable insights from your customer data for strategic decision-making and product enhancement.
 
 Effective search functionality, in particular, is advantageous in various ways. It saves time and enables self-service capabilities, reducing the workload on customer representatives and improving efficiency and productivity.
 
-Kwazii Search, in particular, uses the power of generative AI to streamline information discovery by turning your customer service data into clear, actionable insights that streamline your customer support operations. 
+Kwazii Search, in particular, uses the power of generative AI to streamline information discovery by turning your customer service data into clear, actionable insights that streamline your customer support operations.
 
 Now that you know the benefits of effective search, you'll be glad to know that you can achieve this in Kwazii Search by using its Generative Search API, which can be integrated into Zendesk. At the end of this guide, you'll have the necessary knowledge to achieve the following:
 
 1. Create a search application in Kwazii
-2. Get Kwazii's Generative Search API keys 
+2. Get Kwazii's Generative Search API keys
 3. Use Kwazii's Generative Search API
 4. Obtain and embed Kwazii Search iframe in any user application
 5. Integrate Kwazii Search into Zendesk
@@ -22,33 +22,33 @@ Let's dive right in.
 
 ## Creating a Search Application in Kwazii
 
-To get started and set a foundation for the rest of the guide, you need to create a search application. This will also allow you to use Kwazii's Generative Search API. 
+To get started and set a foundation for the rest of the guide, you need to create a search application. This will also allow you to use Kwazii's Generative Search API.
 
 Follow these steps to create your first search application in Kwazii:
 
-1. Start by creating an account on [Kwazii](https://platform.kwazii.app/). A link will be sent to your email. Use the link in the email to log in to your account. After logging in, you'll be taken to your Home tab, which provides a step-by-step guide on how to get started. 
+1. Start by creating an account on [Kwazii](https://platform.kwazii.app/). A link will be sent to your email. Use the link in the email to log in to your account. After logging in, you'll be taken to your Home tab, which provides a step-by-step guide on how to get started.
 2. First, select **Zendesk** as your data source. Then, on the next page, select **Connect to Zendesk**.
 3. On the next page, enter your preferred application name (you can choose any) and tenant (your organization's subdomain on Zendesk), then select an authentication method for signing into Zendesk and enter the required details.
 4. Next, under **Cron schedule**, select how often Kwazii should scrap your Zendesk data (either once, daily, weekly, or monthly).
-5. After that, click **Create**. A pop-up confirmation will be displayed if the login is successful and the data source is added. Kwazii will redirect you to the **Data Sources** tab, where you can see if the scraping was successful.  
+5. After that, click **Create**. A pop-up confirmation will be displayed if the login is successful and the data source is added. Kwazii will redirect you to the **Data Sources** tab, where you can see if the scraping was successful.
 6. Click **Applications** in the left sidebar and select **Zendesk: Knowledge Base Search**.
-7. Enter your preferred application name and **choose your Zendesk data source**. Remember, only public dataset data sources will be shown. 
-8. After that, enter your greetings questions (questions that will be displayed at first) and a custom placeholder text, and fill in the rest of the form if needed. Once done, click **Create** to create your search application. 
+7. Enter your preferred application name and **choose your Zendesk data source**. Remember, only public dataset data sources will be shown.
+8. After that, enter your greetings questions (questions that will be displayed at first) and a custom placeholder text, and fill in the rest of the form if needed. Once done, click **Create** to create your search application.
 
-A confirmation pop-up will be displayed, showcasing whether the process was successful or not. If the process is successful, Kwazii will provide an iframe you can embed in any page and a script for extending your Zendesk embeddable FAQ application. 
+A confirmation pop-up will be displayed, showcasing whether the process was successful or not. If the process is successful, Kwazii will provide an iframe you can embed in any page and a script for extending your Zendesk embeddable FAQ application.
 
 ## Obtaining API Keys for Generative Search APIs
 
 With an account on Kwazii, you can obtain Generative Search API by following these steps:
 
 1. Log in to your [Kwazii account](https://platform.kwazii.app/).
-2. Select **API Keys** or the **Key** icon in the left sidebar. 
-   ![01-kwazii-api](/Users/alvin/Downloads/01-kwazii-api.png)
-3. Once you're in the API Keys section, select the **Add** button. 
+2. Select **API Keys** or the **Key** icon in the left sidebar.
+   ![01-kwazii-api](/images/01-kwazii-api.png)
+3. Once you're in the API Keys section, select the **Add** button.
 4. In the pop-up, enter the name of the key for easy identification.
-   ![02-kwazii-api](/Users/alvin/Downloads/02-kwazii-api.png)
+   ![02-kwazii-api](/images/02-kwazii-api.png)
 5. Click **OK**. After that, Kwazii will instantly generate an API key with the name that you chose.
-   ![03-kwazii-api](/Users/alvin/Downloads/03-kwazii-api.png)
+   ![03-kwazii-api](/images/03-kwazii-api.png)
 
 To copy the API key, click the **Copy** icon. Like any other API key, please handle it with care. The first rule is to never hardcode API keys in your code. In JavaScript, the standard solution to hide your API keys is to store them as key-value pairs in .env files:
 
@@ -61,7 +61,7 @@ Then load them as environment variables via process.env like so:
 
 ```javascript
 // index.js
-const kwaziiApiKey = process.env.KWAZII_API_KEY
+const kwaziiApiKey = process.env.KWAZII_API_KEY;
 ```
 
 Finally, create a **.gitignore** file (if you don't already have it) and add **.env** to exclude your environment variables from source control.
@@ -71,13 +71,13 @@ Finally, create a **.gitignore** file (if you don't already have it) and add **.
 .env
 ```
 
-By doing so, you avoid hardcoding your API keys in your code and ultimately avoid pushing them to source control. Environment variables are a good starting point. 
+By doing so, you avoid hardcoding your API keys in your code and ultimately avoid pushing them to source control. Environment variables are a good starting point.
 
 If you need a foolproof solution, encrypt your environment variables or use **HSM (Hardware Security Modules)** or **TPM (Trusted Platform Modules)** for more robust key storage.
 
 ## Using Kwazii's Generative Search APIs
 
-Kwazii provides two Generative Search API endpoints: one for searching content (Content Search API) and another for data retrieval (Conversation Data Retrieval API). These Generative Search APIs provide an easy way to integrate Kwazii Search into your product. 
+Kwazii provides two Generative Search API endpoints: one for searching content (Content Search API) and another for data retrieval (Conversation Data Retrieval API). These Generative Search APIs provide an easy way to integrate Kwazii Search into your product.
 
 One reason why you might want to use the Content Search API is to make it easy for your users to search for information. And as a company, the Conversation Data Retrieval API allows you to see what your users are searching for which can help understand the major painpoints they are currently facing.
 
@@ -89,10 +89,10 @@ This API provides a way to programmatically search for content within applicatio
 
 ```javascript
 // 1. install and import the uuid library for generating unique IDs
-import { v4 as uuidv4 } from 'uuid'; 
+import { v4 as uuidv4 } from 'uuid';
 
 // 2. read the API key from your .env file
-const kwaziiApiKey = process.env.KWAZII_API_KEY 
+const kwaziiApiKey = process.env.KWAZII_API_KEY
 
 // 3. make an API request using fetch library
 fetch('https://api.kwazii.app/v1/content/search/<applicationId>', {
@@ -115,7 +115,7 @@ fetch('https://api.kwazii.app/v1/content/search/<applicationId>', {
 
 In the code snippet, we make a POST request to the Content Search API endpoint. You'll need to replace <applicationId> with your actual application ID in the API endpoint. You can find the application ID by going to the **Applications** tab in Kwazii, then selecting the app of your choice. The application ID can be found in the iframe's src attribute denoted by **applicationId='randomID'** or in the provided script denoted by `_kwazii['applicationId'] = 'randomID'`.
 
-For every API request, you need to include a unique `conversationId` and a `question` in the body. There are various ways to generate unique IDs. In the example above, we used the uuid library from npm to generate random IDs. 
+For every API request, you need to include a unique `conversationId` and a `question` in the body. There are various ways to generate unique IDs. In the example above, we used the uuid library from npm to generate random IDs.
 
 The `question` parameter of the payload specifies the question you're seeking an answer for. Additionally, Kwazii's API requires aunthetication via an API key that needs to be included via the `X-KWAZII-API-KEY` header. Otherwise, an "Auth token or API key (X-KWAZII-API-KEY header) is required"error will be thrown.
 
@@ -131,55 +131,58 @@ Related Questions:
 - Are there any additional costs associated with playing PubPod on different platforms?
 ```
 
-After getting the response in the `result` variable, you can then display it. 
+After getting the response in the `result` variable, you can then display it.
 
 ### Conversation Data Retrieval API
 
-This API lets you retrieve content about a specific conversation in a Kwazii application by specifying the conversation ID. For instance, if you've made a search via the Content Search API, you can later retrieve conversation data about a specific conversation.  
+This API lets you retrieve content about a specific conversation in a Kwazii application by specifying the conversation ID. For instance, if you've made a search via the Content Search API, you can later retrieve conversation data about a specific conversation.
 
 Here's how you can fetch data about past conversations in your application in Kwazii via the Conversation Data Retrieval API in JavaScript:
 
 ```javascript
 // 1. read the API key from your .env file
-const kwaziiApiKey = process.env.KWAZII_API_KEY 
+const kwaziiApiKey = process.env.KWAZII_API_KEY;
 
 // 2. make a GET API request using the fetch library
-fetch('https://api.kwazii.app/v1/content/search/<applicationId>/conversation/<conversationId>', {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json',
-    'charset':'UTF-8',
-    'X-KWAZII-API-KEY': '<kwaziiApiKey>'
-  },
-  redirect: 'follow'
-})
-.then(response => response.json())
-.then(result => console.log(result))
-.catch(error => console.log('error', error));
+fetch(
+  "https://api.kwazii.app/v1/content/search/<applicationId>/conversation/<conversationId>",
+  {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      charset: "UTF-8",
+      "X-KWAZII-API-KEY": "<kwaziiApiKey>",
+    },
+    redirect: "follow",
+  }
+)
+  .then((response) => response.json())
+  .then((result) => console.log(result))
+  .catch((error) => console.log("error", error));
 ```
 
-In the code above, we make a GET request to the API endpoint. You need to specify the `<applicationId>` and `<conversationId>` with actual values. Similar to the POST request in searching content via the Content Search API, you need to include your API key in the `X-KWAZII-API-KEY` header. 
+In the code above, we make a GET request to the API endpoint. You need to specify the `<applicationId>` and `<conversationId>` with actual values. Similar to the POST request in searching content via the Content Search API, you need to include your API key in the `X-KWAZII-API-KEY` header.
 
 Here's a sample response:
 
 ```json
 {
-  data: [
+  "data": [
     {
-      answer: '-',
-      answerType: 'answer',
-      question: 'Can I play PubPod on my Xbox?',
-      created: 1708509095683,
-      updated: 1708509602605,
-      intentCategory: 'compatibility',
-      intentFeature: 'xbox compatibility',
-      intentIssue: 'device compatibility'
+      "answer": "-",
+      "answerType": "answer",
+      "question": "Can I play PubPod on my Xbox?",
+      "created": 1708509095683,
+      "updated": 1708509602605,
+      "intentCategory": "compatibility",
+      "intentFeature": "xbox compatibility",
+      "intentIssue": "device compatibility"
     }
   ]
 }
 ```
 
-You can read the individual key value pairs in the response data as you wish. For instance, to get the question from the response, use the format `result.data.map(item => item.question)`. 
+You can read the individual key value pairs in the response data as you wish. For instance, to get the question from the response, use the format `result.data.map(item => item.question)`.
 
 You can read Kwazii's [Generative Search APIs documentation](https://api-docs.kwazii.app/#d2651469-4364-413a-a3c0-4786f6c321ce) for more information. The documentation is also regularly updated in case of any changes.
 
@@ -188,17 +191,17 @@ You can read Kwazii's [Generative Search APIs documentation](https://api-docs.kw
 One quick way to embed Kwazii Search in your application is to use the provided iframe. You can embed the iframe at any position on your website. Here's how you can do it:
 
 1. First, navigate to the **Applications** tab in Kwazii and select the search application that you created.
-   ![01-embed-kwazii](/Users/alvin/Downloads/01-embed-kwazii.png)
-2. On the next page, copy the provided iframe. 
-   ![02-kwazii-search-app-settings](/Users/alvin/Downloads/02-kwazii-search-app-settings.png)
+   ![01-embed-kwazii](/images/01-embed-kwazii.png)
+2. On the next page, copy the provided iframe.
+   ![02-kwazii-search-app-settings](/images/02-kwazii-search-app-settings.png)
 3. Open your website or web application's source code.
 4. Paste the iframe at any position on the page that you'd like your users to search for information easily.
 
 By default, the iframe doesn't have a specific dimension. You can customize the iframe size by entering values in the height and width attributes. For instance, if you'd like your iframe to be 700px in height and 550px wide, enter 700 and 550 as the values of the height and width attributes, respectively. However, we recommend using internal or external styles to apply the height and width properties so you can easily make the iframe responsive.
 
-Besides the iframe's size, Kwazii allows you to style the user interface to match your brand's identity. You can do this by adding custom styles directly in the style attribute of the iframe or internally or in an external CSS file. Because we're working with an iframe, you can only customize it; you don't have complete control of the internal elements. 
+Besides the iframe's size, Kwazii allows you to style the user interface to match your brand's identity. You can do this by adding custom styles directly in the style attribute of the iframe or internally or in an external CSS file. Because we're working with an iframe, you can only customize it; you don't have complete control of the internal elements.
 
-Regardless, you can style the iframe to match your brand colors by customizing the background color and border color. 
+Regardless, you can style the iframe to match your brand colors by customizing the background color and border color.
 
 Here's an example of how you can customize the iframe:
 
@@ -252,7 +255,6 @@ Here's an example of how you can customize the iframe:
     ></iframe>
   </body>
 </html>
-
 ```
 
 <!DOCTYPE html>
@@ -282,11 +284,11 @@ Here's an example of how you can customize the iframe:
       }
 ```
 
-We've also customized the iframe's border-radius and added some padding to ensure equal space between the border and the internal elements. 
+We've also customized the iframe's border-radius and added some padding to ensure equal space between the border and the internal elements.
 
 Here's the final result:
 
-![02-kwazii-search-iframe](/Users/alvin/Downloads/02-kwazii-search-iframe.png)
+![02-kwazii-search-iframe](/images/02-kwazii-search-iframe.png)
 
 ## Integrating Kwazii Search into Zendesk
 
@@ -305,8 +307,8 @@ https://www.algolia.com/doc/integration/zendesk/get-started/
 
 ## Conclusion
 
-In this guide, we covered how to use Kwazii Search in Zendesk, starting with the basics of creating a search application in Kwazii and obtaining your API keys. After that, we discussed how to use Kwazii's Generative Search APIs with different examples, followed by a step-by-step guide on embedding Kwazii Search iframe in any application. 
+In this guide, we covered how to use Kwazii Search in Zendesk, starting with the basics of creating a search application in Kwazii and obtaining your API keys. After that, we discussed how to use Kwazii's Generative Search APIs with different examples, followed by a step-by-step guide on embedding Kwazii Search iframe in any application.
 
-Finally, we wrapped up the guide by addressing the elephant in the room: how to integrate Kwazii Search into your Zendesk account. 
+Finally, we wrapped up the guide by addressing the elephant in the room: how to integrate Kwazii Search into your Zendesk account.
 
 With Kwazii integrated into Zendesk, go ahead and try out different features available in Kwazii. If you have any feedback or questions, please drop them in the comment section below. We look forward to hearing about your experiences with using Kwazii Search in Zendesk.
